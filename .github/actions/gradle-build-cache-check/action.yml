@@ -1,5 +1,5 @@
 name: Check the Gradle remote cache
-description: Builds a one-module Gradle project through the remote build cache runs-on/action points it at, the RunsOn agent's key/value tool cache, and checks what came from it.
+description: Builds a one-module Gradle project through the remote build cache step-security/runs-on-action points it at, the RunsOn agent's key/value tool cache, and checks what came from it.
 
 inputs:
   project:
@@ -19,7 +19,7 @@ runs:
       uses: ./.github/actions/tool-caches-served
       with:
         protocol: kv
-    # GitHub gives the job's runtime token to actions only. runs-on/action
+    # GitHub gives the job's runtime token to actions only. step-security/runs-on-action
     # registers it with the agent and must not export it.
     - name: The runtime token is not in the steps' environment
       shell: bash
@@ -28,7 +28,7 @@ runs:
           echo "::error::the job's runtime token is in the environment of its run steps"
           exit 1
         fi
-    # An agent before RunsOn v3.6.0: runs-on/action warns and writes no init
+    # An agent before RunsOn v3.6.0: step-security/runs-on-action warns and writes no init
     # script, so Gradle builds without a remote cache.
     - name: Without remote caches, Gradle has no remote cache
       if: steps.tools.outputs.served != 'true'
@@ -36,7 +36,7 @@ runs:
       run: |
         script="${GRADLE_USER_HOME:-${HOME}/.gradle}/init.d/runs-on-build-cache.gradle"
         if [[ -e "${script}" ]]; then
-          echo "::error::runs-on/action wrote ${script} on an agent without remote caches"
+          echo "::error::step-security/runs-on-action wrote ${script} on an agent without remote caches"
           exit 1
         fi
     # RunsOn's Windows image has no JDK.

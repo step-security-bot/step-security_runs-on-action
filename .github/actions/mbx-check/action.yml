@@ -16,7 +16,7 @@ runs:
       uses: ./.github/actions/tool-caches-served
       with:
         protocol: kv
-    # An agent before RunsOn v3.6.0: runs-on/action warns and leaves mbx
+    # An agent before RunsOn v3.6.0: step-security/runs-on-action warns and leaves mbx
     # alone.
     - name: Without remote caches, MBX_REMOTE_URL is not set
       if: steps.tools.outputs.served != 'true'
@@ -45,7 +45,7 @@ runs:
       with:
         backend: remote
     # mbx doctor, which the setup action also runs, needs the capabilities
-    # document runs-on/action stores in the cache.
+    # document step-security/runs-on-action stores in the cache.
     - name: mbx finds the remote cache compatible
       if: steps.tools.outputs.served == 'true'
       shell: bash
@@ -95,7 +95,7 @@ runs:
         set -euo pipefail
         cache_url="${RUNS_ON_MAGIC_CACHE_URL:-${ACTIONS_RESULTS_URL}}"
         diagnostics=$(curl -fsS "${cache_url%/}/_runs-on/diagnostics")
-        # The capabilities document runs-on/action stores is not a build's.
+        # The capabilities document step-security/runs-on-action stores is not a build's.
         count() { { grep -o "\"operation\":\"$1\",\"key\":\"[^\"]*\",\"objectKey\":\"[^\"]*\",\"version\":\"kv/mbx\"" <<<"${diagnostics}" || true; } | { grep -v 'v1/capabilities"' || true; } | wc -l | tr -d ' '; }
         reads=$(count read)
         writes=$(count write)

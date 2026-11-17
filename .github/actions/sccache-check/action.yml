@@ -13,7 +13,7 @@ runs:
       uses: ./.github/actions/tool-caches-served
       with:
         protocol: sccache
-    # An agent before RunsOn v3.6.0: runs-on/action warns and leaves sccache
+    # An agent before RunsOn v3.6.0: step-security/runs-on-action warns and leaves sccache
     # alone.
     - name: Without remote caches, sccache is left alone
       if: steps.tools.outputs.served != 'true'
@@ -23,7 +23,7 @@ runs:
           echo "::error::sccache is configured on an agent without remote caches"
           exit 1
         fi
-    # GitHub gives the job's runtime token to actions only. runs-on/action
+    # GitHub gives the job's runtime token to actions only. step-security/runs-on-action
     # registers it with the agent and must not export it.
     - name: The runtime token is not in the steps' environment
       shell: bash

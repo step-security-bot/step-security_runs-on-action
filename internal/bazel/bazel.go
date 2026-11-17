@@ -17,8 +17,8 @@ import (
 )
 
 const (
-	blockStart = "# BEGIN runs-on/action remote_cache"
-	blockEnd   = "# END runs-on/action remote_cache"
+	blockStart = "# BEGIN step-security/runs-on-action remote_cache"
+	blockEnd   = "# END step-security/runs-on-action remote_cache"
 )
 
 // systemRC is Bazel's system rc. Bazel reads it before the workspace and user

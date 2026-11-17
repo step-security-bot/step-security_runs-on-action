@@ -6,7 +6,7 @@ inputs:
     description: Identifies the module's content. The job that uploads it and the job that restores it pass the same value.
     required: true
   mode:
-    description: '"with-tests" when the job gave runs-on/action remote_cache: go,tests=true, "true" for go.'
+    description: '"with-tests" when the job gave step-security/runs-on-action remote_cache: go,tests=true, "true" for go.'
     default: 'true'
   uploads:
     description: '"true" in the job that compiles and uploads the module, "false" in a later job that only restores it.'
@@ -19,7 +19,7 @@ runs:
       uses: ./.github/actions/tool-caches-served
       with:
         protocol: kv
-    # An agent before RunsOn v3.6.0: runs-on/action warns and the go command
+    # An agent before RunsOn v3.6.0: step-security/runs-on-action warns and the go command
     # keeps its local build cache.
     - name: Without remote caches, GOCACHEPROG is not set
       if: steps.tools.outputs.served != 'true'
@@ -29,7 +29,7 @@ runs:
           echo "::error::GOCACHEPROG is set on an agent without remote caches"
           exit 1
         fi
-    # GitHub gives the job's runtime token to actions only. runs-on/action
+    # GitHub gives the job's runtime token to actions only. step-security/runs-on-action
     # registers it with the agent, keeps only the cache endpoint for its
     # helper, and must not export the token.
     - name: The runtime token is not in the steps' environment
@@ -39,7 +39,7 @@ runs:
           echo "::error::the job's runtime token is in the environment of its run steps"
           exit 1
         fi
-    # runs-on/action started the download of what this job used in its
+    # step-security/runs-on-action started the download of what this job used in its
     # previous run, in the background. Once over, it leaves the list it
     # downloaded, which is empty for a job that never ran.
     - name: The job's prefetch ran

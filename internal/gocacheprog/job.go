@@ -162,7 +162,7 @@ func SaveList(opts Options, listKey string) (int, error) {
 	if err := newStoreClient(opts.Endpoint).put(ctx, listPath(opts, listKey), bytes.NewReader(list), int64(len(list))); err != nil {
 		return 0, err
 	}
-	// A second runs-on/action step in the job has nothing more to save.
+	// A second step-security/runs-on-action step in the job has nothing more to save.
 	_ = os.WriteFile(filepath.Join(opts.Dir, prefetchedFile), list, 0o644)
 	_ = os.Remove(stale)
 	return len(list) / actionIDSize, nil

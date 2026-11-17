@@ -30,7 +30,7 @@ func initScriptPath() string {
 }
 
 // initScriptHeader starts the script, so the post step removes only its own.
-const initScriptHeader = "// Written by runs-on/action (remote_cache: gradle) for this job"
+const initScriptHeader = "// Written by step-security/runs-on-action (remote_cache: gradle) for this job"
 
 // initScript makes the agent's cache the build's remote cache, unless the
 // build configures an enabled remote cache of its own. Included builds run it
@@ -42,12 +42,12 @@ const initScript = initScriptHeader + `: a remote
 // build cache stored by the RunsOn agent. The URL stands for the job's token:
 // keep it out of logs.
 if (!gradle.startParameter.buildCacheEnabled) {
-    logger.lifecycle("runs-on/action: the build cache is off for this build, so it does not use the RunsOn cache. Turn it on with org.gradle.caching=true in gradle.properties, or --build-cache.")
+    logger.lifecycle("step-security/runs-on-action: the build cache is off for this build, so it does not use the RunsOn cache. Turn it on with org.gradle.caching=true in gradle.properties, or --build-cache.")
 }
 gradle.settingsEvaluated { settings ->
     def remote = settings.buildCache.remote
     if (remote != null && remote.enabled) {
-        logger.lifecycle("runs-on/action: this build configures its own remote build cache, which it uses instead of the RunsOn cache.")
+        logger.lifecycle("step-security/runs-on-action: this build configures its own remote build cache, which it uses instead of the RunsOn cache.")
         return
     }
     // A remote cache of the same type is configured in place, so a disabled

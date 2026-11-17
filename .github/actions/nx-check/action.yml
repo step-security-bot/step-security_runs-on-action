@@ -16,7 +16,7 @@ runs:
       uses: ./.github/actions/tool-caches-served
       with:
         protocol: nx
-    # An agent without the nx protocol: runs-on/action warns and leaves Nx
+    # An agent without the nx protocol: step-security/runs-on-action warns and leaves Nx
     # alone.
     - name: Without the nx protocol, NX_SELF_HOSTED_REMOTE_CACHE_SERVER is not set
       if: steps.tools.outputs.served != 'true'

@@ -51,9 +51,6 @@ Displays how much it cost to run that workflow job, and compares it with a simil
 * covers EC2 (on-demand or spot), the root EBS volume, and any sticky disk, from when the instance starts (or the job starts, on a warm-pool instance) until the job ends;
 * uses prices your RunsOn control plane already resolves, so the runner makes no pricing or EC2 API calls and needs no internet access.
 
-* covers EC2 (on-demand or spot), the root EBS volume, and any sticky disk, from when the instance starts (or the job starts, on a warm-pool instance) until the job ends;
-* uses prices your RunsOn control plane already resolves, so the runner makes no pricing or EC2 API calls and needs no internet access.
-
 Example output in the "Complete runner" step:
 
 ```

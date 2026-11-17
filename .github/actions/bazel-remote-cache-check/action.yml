@@ -1,5 +1,5 @@
 name: Check the Bazel remote cache
-description: Builds a one-rule Bazel workspace through the remote cache that runs-on/action configured, and checks what came from it.
+description: Builds a one-rule Bazel workspace through the remote cache that step-security/runs-on-action configured, and checks what came from it.
 
 inputs:
   workspace:

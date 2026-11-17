@@ -47,7 +47,7 @@ func TestConfigureSccacheExportsResolvedPrefix(t *testing.T) {
 
 func TestDefaultKeyPrefixScopesRepositoryAndPlatform(t *testing.T) {
 	t.Setenv("GITHUB_REPOSITORY_ID", "123456789")
-	t.Setenv("GITHUB_REPOSITORY", "runs-on/action")
+	t.Setenv("GITHUB_REPOSITORY", "step-security/runs-on-action")
 	t.Setenv("RUNNER_OS", "Linux")
 	t.Setenv("RUNNER_ARCH", "X64")
 
@@ -58,11 +58,11 @@ func TestDefaultKeyPrefixScopesRepositoryAndPlatform(t *testing.T) {
 
 func TestDefaultKeyPrefixFallsBackToRepositorySlug(t *testing.T) {
 	t.Setenv("GITHUB_REPOSITORY_ID", "")
-	t.Setenv("GITHUB_REPOSITORY", "Runs-On/Action")
+	t.Setenv("GITHUB_REPOSITORY", "step-security/runs-on-action")
 	t.Setenv("RUNNER_OS", "Windows")
 	t.Setenv("RUNNER_ARCH", "X64")
 
-	if got, want := DefaultKeyPrefix(), "cache/sccache/runs-on/action/windows-x64/v1"; got != want {
+	if got, want := DefaultKeyPrefix(), "cache/sccache/step-security/runs-on-action/windows-x64/v1"; got != want {
 		t.Fatalf("DefaultKeyPrefix() = %q, want %q", got, want)
 	}
 }

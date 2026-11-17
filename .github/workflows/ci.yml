@@ -57,7 +57,7 @@ jobs:
     uses: ./.github/workflows/test-default.yml
 
   # Publish the built action as dist/<branch> so other repositories can test a
-  # branch with `uses: runs-on/action@dist/<branch>`.
+  # branch with `uses: step-security/runs-on-action@dist/<branch>`.
   mirror:
     needs: build
     if: github.event_name == 'push'
@@ -96,4 +96,4 @@ jobs:
           commit=$(git commit-tree "$(git write-tree)" -m "dist: ${BRANCH} at ${GITHUB_SHA}")
           current=$(git ls-remote origin "refs/heads/dist/${BRANCH}" | cut -f1)
           git push --force-with-lease="refs/heads/dist/${BRANCH}:${current}" origin "${commit}:refs/heads/dist/${BRANCH}"
-          echo "Published runs-on/action@dist/${BRANCH} (${commit}) from ${GITHUB_SHA}."
+          echo "Published step-security/runs-on-action@dist/${BRANCH} (${commit}) from ${GITHUB_SHA}."

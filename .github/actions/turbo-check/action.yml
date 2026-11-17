@@ -16,7 +16,7 @@ runs:
       uses: ./.github/actions/tool-caches-served
       with:
         protocol: turbo
-    # An agent without the turbo protocol: runs-on/action warns and leaves
+    # An agent without the turbo protocol: step-security/runs-on-action warns and leaves
     # turbo alone.
     - name: Without the turbo protocol, TURBO_API is not set
       if: steps.tools.outputs.served != 'true'
