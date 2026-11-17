@@ -32,5 +32,6 @@ jobs:
         if: runner.os == 'Windows'
         run: go test ./internal/stickydisk
       # expectation: this is just a noop on managed runners
+      - uses: ./.github/actions/use-dist
       - uses: ./
       - run: sleep 30

@@ -11,7 +11,11 @@ import (
 	"strings"
 	"testing"
 
+<<<<<<< c9544a53b0afca1b85f65886509dc39546df97bf
 	"github.com/step-security/runs-on-action/internal/config"
+=======
+	"github.com/runs-on/action/internal/config"
+>>>>>>> e85749f6ba6d08e65e6eff7a63a8a4bdf04c0967
 	"github.com/sethvargo/go-githubactions"
 )
 

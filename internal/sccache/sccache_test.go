@@ -21,9 +21,13 @@ func TestConfigureSccacheExportsResolvedPrefix(t *testing.T) {
 	envFile := filepath.Join(t.TempDir(), "env")
 	t.Setenv("GITHUB_ENV", envFile)
 	var log bytes.Buffer
+<<<<<<< c9544a53b0afca1b85f65886509dc39546df97bf
 	if err := ConfigureSccache(githubactions.New(githubactions.WithWriter(&log)), "s3"); err != nil {
 		t.Fatal(err)
 	}
+=======
+	Configure(githubactions.New(githubactions.WithWriter(&log)), "s3")
+>>>>>>> e85749f6ba6d08e65e6eff7a63a8a4bdf04c0967
 	data, err := os.ReadFile(envFile)
 	if err != nil {
 		t.Fatal(err)
