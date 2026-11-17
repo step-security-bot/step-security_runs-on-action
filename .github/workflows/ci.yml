@@ -51,51 +51,12 @@ jobs:
           if-no-files-found: error
           overwrite: true
 
-  bazel-remote-cache:
-    needs: build
-    uses: ./.github/workflows/test-bazel-remote-cache.yml
   container:
     needs: build
     uses: ./.github/workflows/test-container.yml
   default:
     needs: build
     uses: ./.github/workflows/test-default.yml
-  gocacheprog:
-    needs: build
-    uses: ./.github/workflows/test-gocacheprog.yml
-  gradle-build-cache:
-    needs: build
-    uses: ./.github/workflows/test-gradle-build-cache.yml
-  magic-cache:
-    needs: build
-    uses: ./.github/workflows/test-magic-cache.yml
-  mbx:
-    needs: build
-    uses: ./.github/workflows/test-mbx.yml
-  nx:
-    needs: build
-    uses: ./.github/workflows/test-nx.yml
-  metrics:
-    needs: build
-    permissions:
-      contents: read
-      id-token: write
-    uses: ./.github/workflows/test-metrics.yml
-  sccache:
-    needs: build
-    uses: ./.github/workflows/test-sccache.yml
-  turbo:
-    needs: build
-    uses: ./.github/workflows/test-turbo.yml
-  sticky-buildkit:
-    needs: build
-    uses: ./.github/workflows/test-sticky-buildkit.yml
-  sticky-git:
-    needs: build
-    uses: ./.github/workflows/test-sticky-git.yml
-  sticky-tool-cache:
-    needs: build
-    uses: ./.github/workflows/test-sticky-tool-cache.yml
 
   # Publish the built action as dist/<branch> so other repositories can test a
   # branch with `uses: runs-on/action@dist/<branch>`.

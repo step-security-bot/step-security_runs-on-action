@@ -794,41 +794,5 @@ Restore-only jobs let one job keep a cache current while others only read it, fo
 
 The action sets a `cache-hit` output: `true` when every requested path was restored from a previous snapshot. It also sets `buildkit-builder` to the stable builder name.
 
-## Development
 
-Commit source changes only. The binaries and `index.js`/`post.js` are build output: `main` and feature branches don't track them, and CI rejects a branch that commits them. Run `make build` to build them locally.
 
-CI builds them once per push (`.github/workflows/ci.yml`), and every test suite runs that build, so tests always exercise the pushed source.
-
-CI also publishes each built branch as `dist/<branch>`. To test a branch or `main` from another repository, use `step-security/runs-on-action@v2<branch>`, for example `step-security/runs-on-action@v2main`. When its branch is deleted, the mirror is deleted only after a reviewer approves the `dist-cleanup` environment, because other repositories may still be testing against it.
-
-## Release
-
-Releases are created by the manual **Release** GitHub Actions workflow. Run it from `main` with a new tag, for example `v2.5.0`, and optionally the `source_sha` of a main commit (default: the tip of main). CI must have passed for that commit's push to main.
-
-The workflow publishes the exact build that CI tested. It commits main's tree at that commit plus the build on top of the release branch (`v2`), with the released main commit as a second parent so release notes list the merged pull requests. It then tags the commit, signs `SHA256SUMS`, pushes the branch and tag together, creates the release with assets and GitHub artifact attestations, and publishes it. The commit's tree is built directly, so a release never has merge conflicts.
-
-Do not create or push release tags locally, and do not push to the release branch by hand.
-
-The repository must have these secrets configured:
-
-* `RELEASE_APP_ID` - GitHub App ID for the release app allowed to bypass release branch rules
-* `RELEASE_APP_PRIVATE_KEY` - private key for the release GitHub App
-* `RELEASE_GPG_PRIVATE_KEY` - armored private key used to sign `SHA256SUMS`
-* `RELEASE_GPG_PASSPHRASE` - passphrase for the private key
-* `RELEASE_GPG_KEY_ID` - optional key id when the imported keyring contains more than one signing key
-
-To verify a release:
-
-```bash
-gh release download v2.5.0 -R runs-on/action
-gpg --verify SHA256SUMS.asc SHA256SUMS
-shasum -a 256 -c SHA256SUMS
-gh attestation verify main-linux-amd64 -R runs-on/action
-```
-
-## Future work
-
-This action will probably host a few other features such as:
-
-- enabling/disabling SSM agent ?

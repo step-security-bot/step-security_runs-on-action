@@ -1,7 +1,7 @@
 {
   "name": "@step-security/runs-on-action",
   "private": true,
-  "version": "2.2.0",
+  "version": "2.7.1",
   "description": "[![StepSecurity Maintained Action](https://raw.githubusercontent.com/step-security/maintained-actions-assets/main/assets/maintained-action-banner.png)](https://docs.stepsecurity.io/actions/stepsecurity-maintained-actions)",
   "main": "dist/index.js",
   "scripts": {
