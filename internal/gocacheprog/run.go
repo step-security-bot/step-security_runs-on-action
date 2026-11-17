@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/runs-on/action/internal/magiccache"
+	"github.com/step-security/runs-on-action/internal/magiccache"
 )
 
 // namespace versions the remote entry format: a change starts from an empty

@@ -5,8 +5,8 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/runs-on/action/internal/magiccache"
 	"github.com/sethvargo/go-githubactions"
+	"github.com/step-security/runs-on-action/internal/magiccache"
 )
 
 // ConfigureRemoteCache points sccache's WebDAV backend at the agent's sccache

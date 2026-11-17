@@ -16,8 +16,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/runs-on/action/internal/magiccache"
 	"github.com/sethvargo/go-githubactions"
+	"github.com/step-security/runs-on-action/internal/magiccache"
 )
 
 // Configure registers the job with the agent's remote caches and exports

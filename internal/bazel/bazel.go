@@ -12,8 +12,8 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/runs-on/action/internal/magiccache"
 	"github.com/sethvargo/go-githubactions"
+	"github.com/step-security/runs-on-action/internal/magiccache"
 )
 
 const (

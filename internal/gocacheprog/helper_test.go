@@ -16,7 +16,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/runs-on/action/internal/gocacheprog"
+	"github.com/step-security/runs-on-action/internal/gocacheprog"
 )
 
 // fakeStore is an in-memory copy of the RunsOn agent's gocacheprog cache:

@@ -10,8 +10,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/runs-on/action/internal/magiccache"
 	"github.com/sethvargo/go-githubactions"
+	"github.com/step-security/runs-on-action/internal/magiccache"
 )
 
 // gradleUserHome is GRADLE_USER_HOME, or ~/.gradle.

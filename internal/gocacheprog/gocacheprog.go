@@ -6,8 +6,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/runs-on/action/internal/magiccache"
 	"github.com/sethvargo/go-githubactions"
+	"github.com/step-security/runs-on-action/internal/magiccache"
 )
 
 // Flag makes this action's binary serve the go command's build cache.

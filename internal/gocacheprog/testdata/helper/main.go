@@ -5,7 +5,7 @@ package main
 import (
 	"os"
 
-	"github.com/runs-on/action/internal/gocacheprog"
+	"github.com/step-security/runs-on-action/internal/gocacheprog"
 )
 
 func main() {

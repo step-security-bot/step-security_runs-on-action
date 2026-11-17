@@ -11,11 +11,11 @@ import (
 )
 
 const (
-	aptArchivesDir      = "/var/cache/apt/archives"
-	aptConfigDir        = "/etc/apt/apt.conf.d"
-	aptDockerCleanName  = "docker-clean"
-	aptKeepArchivesName = "99runs-on-keep-archives"
-	aptKeepArchivesConfig      = `APT::Keep-Downloaded-Packages "true";
+	aptArchivesDir        = "/var/cache/apt/archives"
+	aptConfigDir          = "/etc/apt/apt.conf.d"
+	aptDockerCleanName    = "docker-clean"
+	aptKeepArchivesName   = "99runs-on-keep-archives"
+	aptKeepArchivesConfig = `APT::Keep-Downloaded-Packages "true";
 Binary::apt::APT::Keep-Downloaded-Packages "true";
 `
 )

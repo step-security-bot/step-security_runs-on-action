@@ -9,8 +9,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/runs-on/action/internal/magiccache"
 	"github.com/sethvargo/go-githubactions"
+	"github.com/step-security/runs-on-action/internal/magiccache"
 )
 
 // settings are the variables that point turbo at a remote cache. The job's own

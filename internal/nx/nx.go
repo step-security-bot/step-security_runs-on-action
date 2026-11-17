@@ -6,8 +6,8 @@ package nx
 import (
 	"os"
 
-	"github.com/runs-on/action/internal/magiccache"
 	"github.com/sethvargo/go-githubactions"
+	"github.com/step-security/runs-on-action/internal/magiccache"
 )
 
 // serverEnv points Nx (20.8 or later) at a self-hosted remote cache. The job's

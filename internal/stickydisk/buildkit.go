@@ -16,15 +16,15 @@ import (
 // Buildx derives the node, container, and state-volume names from the builder
 // name; keep these aligned with its docker-container driver naming contract.
 const (
-	buildkitBuilderName       = "runs-on"
-	buildkitNodeName          = buildkitBuilderName + "0"
-	buildkitContainerName     = "buildx_buildkit_" + buildkitNodeName
-	buildkitStateVolumeName   = buildkitContainerName + "_state"
-	buildkitStateTarget       = "/var/lib/buildkit"
-	buildkitStopWait          = 20 * time.Second
-	buildkitVolumeLabelKey    = "runs-on.stickydisk"
-	buildkitVolumeLabelValue  = "buildkit"
-	buildkitVolumeLabel       = buildkitVolumeLabelKey + "=" + buildkitVolumeLabelValue
+	buildkitBuilderName      = "runs-on"
+	buildkitNodeName         = buildkitBuilderName + "0"
+	buildkitContainerName    = "buildx_buildkit_" + buildkitNodeName
+	buildkitStateVolumeName  = buildkitContainerName + "_state"
+	buildkitStateTarget      = "/var/lib/buildkit"
+	buildkitStopWait         = 20 * time.Second
+	buildkitVolumeLabelKey   = "runs-on.stickydisk"
+	buildkitVolumeLabelValue = "buildkit"
+	buildkitVolumeLabel      = buildkitVolumeLabelKey + "=" + buildkitVolumeLabelValue
 )
 
 type dockerVolumeInspect struct {

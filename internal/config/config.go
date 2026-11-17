@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/runs-on/action/internal/remotecache"
 	"github.com/sethvargo/go-githubactions"
+	"github.com/step-security/runs-on-action/internal/remotecache"
 )
 
 // Config holds the action's configuration values derived from inputs and environment.
