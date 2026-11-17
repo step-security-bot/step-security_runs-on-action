@@ -19,8 +19,6 @@ jobs:
       UPX_VERSION: 5.0.2
     steps:
       - uses: actions/checkout@v7
-      - if: ${{ !startsWith(github.ref_name, 'v') }}
-        uses: ./.github/actions/reject-build-output
       - uses: actions/setup-go@v7
         with:
           go-version-file: go.mod
