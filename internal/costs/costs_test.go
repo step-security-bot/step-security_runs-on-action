@@ -11,8 +11,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/step-security/runs-on-action/internal/config"
 	"github.com/sethvargo/go-githubactions"
+	"github.com/step-security/runs-on-action/internal/config"
 )
 
 type roundTripFunc func(*http.Request) (*http.Response, error)

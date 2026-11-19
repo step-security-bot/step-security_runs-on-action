@@ -1,6 +1,6 @@
 module github.com/step-security/runs-on-action
 
-go 1.26
+go 1.27.3
 
 require (
 	github.com/aws/aws-sdk-go-v2 v1.41.3

@@ -1,10 +1,6 @@
 name: Test / Default
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-  workflow_dispatch:
+  workflow_call:
 
 jobs:
   github:
@@ -32,5 +28,6 @@ jobs:
         if: runner.os == 'Windows'
         run: go test ./internal/stickydisk
       # expectation: this is just a noop on managed runners
+      - uses: ./.github/actions/use-dist
       - uses: ./
       - run: sleep 30

@@ -13,8 +13,8 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/cloudwatch"
 	"github.com/aws/aws-sdk-go-v2/service/cloudwatch/types"
 	"github.com/guptarohit/asciigraph"
-	"github.com/step-security/runs-on-action/internal/utils"
 	"github.com/sethvargo/go-githubactions"
+	"github.com/step-security/runs-on-action/internal/utils"
 )
 
 const NAMESPACE = "CWAgent"

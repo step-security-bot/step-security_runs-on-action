@@ -18,8 +18,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/step-security/runs-on-action/internal/gitproxy"
 	"github.com/sethvargo/go-githubactions"
+	"github.com/step-security/runs-on-action/internal/gitproxy"
 )
 
 const (

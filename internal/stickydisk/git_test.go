@@ -8,8 +8,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/step-security/runs-on-action/internal/gitproxy"
 	"github.com/sethvargo/go-githubactions"
+	"github.com/step-security/runs-on-action/internal/gitproxy"
 )
 
 // isolatedGitConfig points the global git config at a temp file so tests

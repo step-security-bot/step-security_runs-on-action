@@ -14,9 +14,9 @@ import (
 
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/service/ec2"
+	"github.com/sethvargo/go-githubactions"
 	"github.com/step-security/runs-on-action/internal/config"
 	"github.com/step-security/runs-on-action/internal/utils"
-	"github.com/sethvargo/go-githubactions"
 )
 
 const costAPIURL = "https://go.runs-on.com/api/costs"
